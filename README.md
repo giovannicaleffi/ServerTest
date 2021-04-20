@@ -4,4 +4,4 @@ If I run MultiEchoServer class, it works with no problems and I can easily conne
 
 After that, if I write a text and I send it to the server, I receive back the same message as it should be. But when I write `quit`, the connection does not close itself immediately, but only after two messages (in the screenshot I only pressed twice the Enter button).
 
-![alt text](http://url/to/img.png)
+![Screenshot](https://github.com/fillics/ServerTest/blob/master/Immagine.png)
