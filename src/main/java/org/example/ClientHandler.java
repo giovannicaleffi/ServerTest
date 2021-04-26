@@ -5,16 +5,19 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class EchoServerClientHandler implements Runnable {
+public class ClientHandler implements Runnable {
     private Socket socket;
     private boolean quit = false;
-    public EchoServerClientHandler(Socket socket) {
+    public ClientHandler(Socket socket) {
         this.socket = socket;
     }
+
+
     public void run() {
         try {
             Scanner in = new Scanner(socket.getInputStream());
             PrintWriter out = new PrintWriter(socket.getOutputStream());
+
             // Leggo e scrivo nella connessione finche' non ricevo "quit"
             while (!quit) {
                 String line = in.nextLine();
@@ -25,7 +28,7 @@ public class EchoServerClientHandler implements Runnable {
                     out.flush();
                 }
             }
-            // Chiudo gli stream e il socket
+            // Chiudo gli stream e il socket -> client non è più connesso al server
             in.close();
             out.close();
             socket.close();
